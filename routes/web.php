@@ -25,6 +25,7 @@ Route::group(['prefix' => 'tags'], function() {
     Route::patch('/{tag}', \App\Http\Controllers\Tag\UpdateController::class)->name('tag.update');
     Route::delete('/{tag}', \App\Http\Controllers\Tag\DeleteController::class)->name('tag.delete');
 });
+
 Route::group(['prefix' => 'colors'], function() {
     Route::get('/', \App\Http\Controllers\Color\IndexController::class)->name('color.index');
     Route::get('/create', \App\Http\Controllers\Color\CreateController::class)->name('color.create');
@@ -34,6 +35,7 @@ Route::group(['prefix' => 'colors'], function() {
     Route::patch('/{color}', \App\Http\Controllers\Color\UpdateController::class)->name('color.update');
     Route::delete('/{color}', \App\Http\Controllers\Color\DeleteController::class)->name('color.delete');
 });
+
 Route::group(['prefix' => 'users'], function() {
     Route::get('/', \App\Http\Controllers\User\IndexController::class)->name('user.index');
     Route::get('/create', \App\Http\Controllers\User\CreateController::class)->name('user.create');
@@ -42,4 +44,15 @@ Route::group(['prefix' => 'users'], function() {
     Route::get('/{user}', \App\Http\Controllers\User\ShowController::class)->name('user.show');
     Route::patch('/{user}', \App\Http\Controllers\User\UpdateController::class)->name('user.update');
     Route::delete('/{user}', \App\Http\Controllers\User\DeleteController::class)->name('user.delete');
+});
+
+
+Route::group(['prefix' => 'products'], function() {
+    Route::get('/', \App\Http\Controllers\Product\IndexController::class)->name('product.index');
+    Route::get('/create', \App\Http\Controllers\Product\CreateController::class)->name('product.create');
+    Route::post('/', \App\Http\Controllers\Product\StoreController::class)->name('product.store');
+    Route::get('/{product}/edit', \App\Http\Controllers\Product\EditController::class)->name('product.edit');
+    Route::get('/{product}', \App\Http\Controllers\Product\ShowController::class)->name('product.show');
+    Route::patch('/{product}', \App\Http\Controllers\Product\UpdateController::class)->name('product.update');
+    Route::delete('/{product}', \App\Http\Controllers\Product\DeleteController::class)->name('product.delete');
 });
